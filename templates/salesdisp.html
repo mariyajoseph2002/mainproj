@@ -1,0 +1,110 @@
+{% include 'adminnavbar.html' %}
+<html>
+    <head>
+        <style>
+            .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            } 
+            .bxx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(71, 6, 104, 0.3);
+            }
+            
+           
+            .name{
+                color: rgb(254, 239, 252);
+            }
+        </style>
+
+    </head>
+<body>
+ 
+    
+        
+    <h1 class="name"></h1>
+ 
+    <div class="lg-main">
+        <div class="bxx">
+  <form method="post">
+    <table style="color: black;width: 100px">
+
+  
+       <td style="color: white"><input class="form-control" type="date" name="daily" > DAILY </td>
+       <td  style="color: white"> <input class="form-control" type="month" name="monthly"> MONTHLY </td>
+        
+        <td  style="color: white"> <input type="text" class="form-control" name="customer" placeholder="Search by Customer"> CUSTOMER </td>
+
+     <tr>
+       <td align="center" colspan="5"><input type="submit" name="sale" class="btn btn-success" value="SEARCH"></td>
+      </tr>
+    
+
+      </tr>
+    </table>
+  </form>
+  </div>
+  </div>
+</center>
+<center>
+<h1 > Sales Report</h1>
+	  <h2><a class="btn btn-success" href="report">print</a></h2>
+	<form>
+
+    <div class="lg-main">
+        <div class="bxx">
+            <div class="lg-main">
+                <div class="bxx">
+            <br><br>
+    <center><h1 class="name"> Sales</h1></center>
+    <br><br>
+
+<table class="table table-striped" style="width:800px" border=6>
+    <tr>
+        <th class="name">Customer Name</th>
+        
+        <th class="name">Building id</th>
+        <th class="name">Building image</th>
+        <th class="name">Price</th>
+        
+        <th class="name">Phone</th>
+        <th class="name">Date</th>
+        <th class="name">Status</th>
+
+        
+    </tr>
+    {% for i in data['report'] %}
+    <tr>
+        <td class="name">{{ i['c_fname'] }} {{ i['c_lname'] }}</td>
+        <td class="name">{{ i['buil_id'] }}</td>
+        <td ><a href="/{{ i['image'] }}"><img src="/{{ i['image'] }}" height="100" width="100"></a></td>
+        
+        <td class="name">{{ i['price'] }}</td>
+        
+        <td class="name">{{ i['c_phno'] }}</td>
+        <td class="name">{{ i['payment_date'] }}</td>
+        <td class="name">{{ i['salesstatus'] }}</td>
+        
+        
+        
+        <!-- <td><a href="?action=update&cid={{i['s_id']}}"  class="btn btn-primary">Update</a></td> -->
+       
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</div> 
+</div>    
+</form>  
+    </section>
+</body>
+
+</html>
+

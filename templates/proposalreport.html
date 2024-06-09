@@ -1,0 +1,99 @@
+{% include 'adminnavbar.html' %}
+<html>
+    <head>
+        <style>
+            .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            } 
+            .bxx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(204, 195, 208, 0.3);
+            }
+            
+           
+            .name{
+                color: rgb(17, 3, 44);
+            }
+        </style>
+
+    </head>
+<body>
+ 
+    
+        
+    <h1 class="name"></h1>
+ 
+    <div class="lg-main">
+        <div class="bxx">
+
+	  <h2><a class="btn btn-success" href="proposalprint">print</a></h2>
+	<form>
+
+    
+          
+            <br><br>
+    <center><h1 class="name"> Proposals accepted</h1></center>
+    <br><br>
+
+<table class="table table-striped" style="width:800px" border=6>
+    <tr>
+        <th class="name">Building id</th>
+        <th class="name">Customer Name</th>
+        <th class="name">Image</th>
+        
+    
+
+        
+    </tr>
+    {% for i in data['report'] %}
+    <tr>
+        <td >{{ i['buil_id'] }}</td>
+        <td >{{ i['c_fname'] }} {{ i['c_lname'] }}</td>
+        <td ><a href="/{{ i['image'] }}"><img src="/{{ i['image'] }}" height="100" width="100"></a></td>
+        
+     
+    </tr>
+    {% endfor %}
+</table>
+
+<br><br>
+<center><h1 class="name"> Proposals denied </h1></center>
+<br><br>
+
+<table class="table table-striped" style="width:800px" border=6>
+<tr>
+    <th class="name">Building id</th>
+    <th class="name">Customer Name</th>
+    <th class="name">Image</th>
+    
+
+
+    
+</tr>
+{% for h in data['rep'] %}
+<tr>
+    <td >{{ h['buil_id'] }}</td>
+    <td >{{ h['c_fname'] }} {{ h['c_lname'] }}</td>
+    <td ><a href="/{{ h['image'] }}"><img src="/{{ h['image'] }}" height="100" width="100"></a></td>
+    
+ 
+</tr>
+{% endfor %}
+</table>
+
+</div>
+</div> 
+</div>    
+</form>  
+    </section>
+</body>
+
+</html>

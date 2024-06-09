@@ -1,0 +1,175 @@
+
+<html>
+    {% include 'cust_header.html' %}
+
+    <head>
+        <link rel="stylesheet" href="../static/css/style2.css">
+        <link rel="stylesheet" href="../static/css/bootstrap2.css">
+        <style>
+   .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            }
+            .bxx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(250, 246, 252, 0.3);
+            }
+            
+           
+            .name{
+                color: rgb(239, 247, 254);
+            }
+        </style>
+
+    </head>
+<body>
+  
+</center>
+<pre>
+
+
+    
+</pre>
+    <div class="lg-main">
+        
+        <div class="bxx">
+    <form  method="POST" style="width: 450px;" enctype="multipart/form-data">
+        <center>
+            <pre>
+            </pre>
+<div class="card-header">
+
+    <h1 class="text-white">Building details
+
+    </h1> 
+</div>
+        
+      <pre>
+      </pre>
+    <!-- <table class="table" style="width:600px">
+
+        <tr>
+            <th class="name">Category name</th>
+            <td><input class="form-control" type="text" name="name"></td>
+        </tr>
+       
+        <tr>
+            <td align="center" colspan="2"><input class="btn btn-success" type="submit" value="Submit" name="submit"></td>
+        </tr>
+    </table> -->
+    <div class="field-group">
+                            
+
+        <div class="content-input-field">
+            <select name="ptype" id="ptype" class="content-input-field form-control name" style="background:rgba(0, 123, 255, 0.06);margin-bottom:15px;height:50px" >
+                <option value="">select property type</option>
+                {% for i in data['ptype'] %}
+                <option value="{{i['ptype_id']}}">{{i['ptype_name']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="content-input-field">
+            <select name="cat" id="cat" class="content-input-field form-control name" style="background:rgba(94, 198, 141, 0.06);margin-bottom:15px;height:50px" >
+                <option value="">select category</option>
+                {% for i in data['cat'] %}
+                <option value="{{i['cat_id']}}">{{i['cat_name']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="content-input-field">
+            <select name="subcat" id="subcat" class="content-input-field form-control name" style="background:rgba(0, 123, 255, 0.06);margin-bottom:15px;height:50px" >
+                <option value="">select subcategory</option>
+                {% for i in data['subcat'] %}
+                <option value="{{i['subcat_id']}}">{{i['subcat_name']}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br>
+        <tr>
+            <th class="name">Square feet </th>
+            <td><input class="form-control" type="text" name="sq"  required=""></td>
+        </tr>
+      <br>
+      <br>
+        <tr>
+            <th class="name">Price</th>
+            <td><input class="form-control" type="text" name="price"  required=""></td>
+        </tr>
+      <br>
+      <br>
+        <tr>
+            <th class="name">Image</th>
+            <td><input class="form-control" type="file" name="img"  required=""></td>
+        </tr>
+      <br>
+      <br>
+        <tr>
+            <th class="name">Place</th>
+            <td><input class="form-control" type="text" name="place"  required=""></td>
+        </tr>
+      <br>
+      <br>
+        <tr>
+            <th class="name">District</th>
+            <td><input class="form-control" type="text" name="district"  required=""></td>
+        </tr>
+      <br>
+      <br>
+        <tr>
+            <th class="name">House no</th>
+            <td><input class="form-control" type="text" name="houseno"  required=""></td>
+        </tr>
+      <br>
+      <tr>
+        <th class="name">Another image1</th>
+        <td><input class="form-control" type="file" name="img1"  required=""></td>
+    </tr>
+  <br>
+   <br>
+  <tr>
+      <th class="name">Another image2</th>
+      <td><input class="form-control" type="file" name="img2"  required=""></td>
+  </tr>
+<br>
+    
+      <tr>
+        <td align="center" colspan="2"><input class="btn btn-success" type="submit" value="Submit" name="submit"></td>
+    </tr>
+    </div>
+</center>
+    </form>
+   
+</div>
+</div>
+</body>
+</html>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>alert("{{ message }}")</script>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+
+
+</div></div>       </div></div>         
+    </section>
+    <style>
+        body{
+            background-image: url("/static/images/bg2.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100%;
+            height: 220vh;
+        }
+    </style>
+</body>
+
+</html>         

@@ -1,0 +1,138 @@
+{% include 'adminnavbar.html' %}
+<html>
+    <head>
+        <style>
+            /*  .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            } 
+            .card {
+  width: 453px;
+  padding: 0px;
+  border: 2px solid gray;
+  margin: 10px;
+  margin-top: 0px;
+}
+.card-header {
+  background-color: #dfd8d8;
+  padding: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-header h1{
+  margin: 0;
+  font-size: 20px;
+}*/
+.lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            }
+            .bxx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(70, 8, 106, 0.3);
+            }
+            
+           
+            .name{
+                color: rgb(239, 247, 254);
+            }
+        </style>
+
+    </head>
+<body>
+    <div class="lg-main">
+        <div class="bxx">
+    <form action="#" method="POST" style="width: 800px;">
+        {%if data['up']%}
+        <center>
+            <pre>
+
+            </pre><div class="card-header"></div>
+            <div class="lg-main">
+                <div class="bxx">
+        <h1 class="text-white">Category details
+
+      </h1>
+      <pre>
+
+      </pre>
+
+    <table class="table" style="width:500px">
+        <tr>
+            <th class="name">Category name</th>
+            <td><input class="form-control" type="text" name="name" value="{{data['up'][0]['cat_name']}}" required=""></td>
+        </tr>
+      
+        <tr>
+            <td align="center" colspan="2"><input class="btn btn-success" type="submit" value="Submit" name="update"></td>
+        </tr>
+    </table>
+</center>
+{%else%}
+<center>
+    <div class="lg-main">
+        
+        <div class="bxx">
+    <form  method="POST" style="width: 450px;">
+        <center>
+            <pre>
+
+            </pre>
+<div class="card-header">
+    <h1 class="text-white">Category details
+
+    </h1> 
+</div>
+        
+      <pre>
+
+      </pre>
+     
+    <table class="table" style="width:600px">
+        <tr>
+            <th class="name">Category name</th>
+            <td><input class="form-control" type="text" name="name" required=""></td>
+        </tr>
+       
+        <tr>
+            <td align="center" colspan="2"><input class="btn btn-success" type="submit" value="Submit" name="submit"></td>
+        </tr>
+    </table>
+</center>
+    </form>
+    {%endif%}
+</div>
+</div>
+<br>
+    <div class="lg-main">
+        <div class="bxx">
+            <pre>
+
+            </pre>
+<center><h1 class="name">View Category</h1></center>
+<br>
+<table class="table table-striped" style="width:800px" border=6>
+    <tr>
+        <th class="name">Name</th>
+    </tr>
+    {% for i in data['res'] %}
+    <tr class="name">
+        <td>{{ i['cat_name'] }} </td>
+        <td><a href="?action=update&cid={{i['cat_id']}}"  class="btn btn-primary">Update</a></td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+
+</html>

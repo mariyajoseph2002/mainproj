@@ -1,0 +1,155 @@
+
+{% include 'public_header.html' %}
+<html>
+    <head>
+        
+        <style>
+            .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            }
+           
+            .bx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(0, 0, 0, 0.3);
+            }
+            h1{
+                color: black;
+            }
+            body{
+                background-image: url("../static/images/bg3.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 100vh;
+            }
+            .name{
+                color: aliceblue;
+            }
+        </style>
+
+    </head>
+<body>
+    <div class="lg-main">
+        <div class="bx">
+    <form  method="POST" style="width: 450px;">
+        <center>
+            <pre>
+
+            </pre>
+
+        <h1 class="text-white">Registration
+
+      </h1>
+      <pre>
+
+      </pre>
+    <table class="table" style="width:500px">
+        <tr>
+            <th class="name">First Name</th>
+            <td><input class="form-control" type="text" name="fname" required></td>
+        </tr>
+        <tr>
+            <th class="name">Last Name</th>
+            <td><input class="form-control" type="text" name="lname" required></td>
+        </tr>
+        <tr>
+            <th class="name">Housename</th>
+            <td><input class="form-control" type="text" name="housename" required></td>
+        </tr>
+        <tr>
+            <th class="name">Place</th>
+            <td><input class="form-control" type="text" name="place" required></td>
+        </tr>
+        <tr>
+            <th class="name">Pin</th>
+            <td><input class="form-control" type="text" name="pin" required></td>
+        </tr>
+        <tr>
+            <th class="name">Phone no</th>
+            <td><input class="form-control" maxlength="10" title="enter 10 digits" pattern="[0-9]{10}" type="text" name="phno" required></td>
+        </tr>
+        <tr>
+            <th class="name">Username</th>
+            <td><input class="form-control" type="email" name="uname" required></td>
+        </tr>
+        <tr>
+            <th class="name">Password</th>
+            <td><input class="form-control" type="password" name="password" required></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><input class="btn btn-danger" type="submit" value="Submit" name="submit"></td>
+        </tr>
+    </table>
+</center>
+    </form>
+
+</div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        $("input[name='fname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+        });
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+		// $("input[name='pgender']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+        // });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+        
+        $("input[name='phno']").on('input', function(e) {
+          $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='pin']").on('input', function(e) {
+          $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+		
+        $("input[name='uname']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror1').show();
+                    $('#btn').prop('disabled', true);
+                    console.log("err");
+                } else {
+                    $('#btn').prop('disabled', false);
+                    $('#eerror1').hide();
+                    console.log("err");
+                }
+
+        });
+        
+        $("input[name='housename']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        
+          
+        // $("input[name='password']").on('input', function(e) {
+        //   $(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+            
+        // });
+    });
+
+
+</script>
+{% include 'footer.html' %}
+
+</html>
+

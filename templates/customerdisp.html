@@ -1,0 +1,99 @@
+{% include 'adminnavbar.html' %}
+<html>
+    <head>
+        <style>
+            .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            } 
+            .bxx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(71, 6, 104, 0.3);
+            }
+            
+           
+            .name{
+                color: rgb(254, 239, 252);
+            }
+        </style>
+
+    </head>
+<body>
+    <div class="lg-main">
+        <div class="bxx">
+            <div class="lg-main">
+                <div class="bxx">
+            <br><br>
+    <center><h1 class="name">View Customer</h1></center>
+    <br><br>
+    <center>
+    <form action="" method="post">
+        <table>
+            <tr>
+                <th><input type="text" name="name" class="form-control" placeholder="Search By Name"></th>
+                <td><input type="submit" name="search" value="Search" class="btn btn-danger"></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <a href="cusreport" class="btn btn-success">Print</a>
+</center>
+<br>
+{% if data['res'] %}
+<table class="table table-striped" style="width:800px" border=6>
+    <tr>
+        <th class="name">Id</th>
+        <th class="name">Name</th>
+        
+        <th class="name">Housename</th>
+        <th class="name">Place</th>
+        <th class="name">Pin</th>
+        <th class="name">Phone</th>
+
+        
+    </tr>
+    {% for i in data['res'] %}
+    <tr>
+        <td class="name">{{ i['c_id'] }}</td>
+        <td class="name">{{ i['c_fname'] }} {{ i['c_lname'] }}</td>
+        <td class="name">{{ i['c_housename'] }}</td>
+        <td class="name">{{ i['c_place'] }}</td>
+        <td class="name">{{ i['c_pin'] }}</td>
+        <td class="name">{{ i['c_phno'] }}</td>
+        
+        
+        
+        <!-- <td><a href="?action=update&cid={{i['s_id']}}"  class="btn btn-primary">Update</a></td> -->
+        {% if i['c_status'] == 1 %}
+        <td><a href="?action=inactive&cid={{i['c_id']}}"  class="btn btn-danger">Inactive</a></td>
+        {% else %}
+        <td><a href="?action=active&cid={{i['c_id']}}"  class="btn btn-primary">Active</a></td>
+
+        {% endif %}
+    </tr>
+    {% endfor %}
+
+{% else %}
+<tr>
+    <td>
+	NO DATA
+</td>
+</tr>
+	{% endif %}
+</table>
+</div>
+</div> 
+</div>    
+        
+    </section>
+</body>
+
+</html>
+

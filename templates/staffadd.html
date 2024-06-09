@@ -1,0 +1,253 @@
+{% include 'adminnavbar.html' %}
+<html>
+    <head>
+        <style>
+            .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            } 
+/*             .card {
+  width: 453px;
+  padding: 0px;
+  border: 2px solid gray;
+  margin: 10px;
+  margin-top: 0px;
+}
+.card-header {
+  background-color: #dfd8d8;
+  padding: 50px;
+  border-bottom: 1px solid #ccc;
+}
+
+.card-header h1{
+  margin: 0;
+  font-size: 20px;
+} */
+
+
+           
+            .bxx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(70, 8, 106, 0.3);
+            }
+            
+           
+            .name{
+                color: rgb(239, 247, 254);
+            }
+        </style>
+
+    </head>
+<body>
+    
+        
+            <div class="lg-main">
+                <div class="bxx">
+    <form  action="#" method="POST" style="width: 450px;">
+        {%if data['up']%}
+        <center>
+            <pre>
+
+            </pre>
+<div class="card-header">
+    <h1 class="text-white">Staff details
+
+    </h1> 
+</div>
+        
+      <pre>
+
+      </pre>
+      <center>
+    <table class="table" style="width:700px">
+        <tr>
+            <th class="name">Username</th>
+            <td><input class="form-control" type="email" name="uname" value="{{data['up'][0]['username']}}" required=""></td>
+        </tr>
+        <tr>
+            <th class="name">First Name</th>
+            <td><input class="form-control" type="text" name="fname" value="{{data['up'][0]['s_fname']}}" required=""></td>
+        </tr>
+        <tr>
+            <th class="name">Last Name</th>
+            <td><input class="form-control" type="text" name="lname" value="{{data['up'][0]['s_lname']}}" required=""></td>
+        </tr>
+        <tr>
+            <th class="name">Phone no</th>
+            <td><input class="form-control" type="text" name="phno"maxlength="10" title="enter 10 digits" pattern="[0-9]{10}" value="{{data['up'][0]['s_phno']}}" required=""></td>
+        </tr>
+        
+        <tr>
+            <th class="name">City</th>
+            <td><input class="form-control" type="text" name="city" value="{{data['up'][0]['s_city']}}" required=""></td>
+        </tr>
+        
+        
+        
+        <tr>
+            <th class="name">Password</th>
+            <td><input class="form-control" type="password" name="password" value="{{data['up'][0]['password']}}" required=""></td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2"><input class="btn btn-success" type="submit" value="Submit" name="update"></td>
+        </tr>
+    </table>
+</center>
+</center>
+{%else%}
+<div class="lg-main">
+    <div class="bxx">
+<form  action="#" method="POST" style="width: 450px;">
+
+<center>
+<pre>
+
+</pre>
+<div class="card-header">
+<h1 class="text-white">Staff details
+
+</h1> 
+</div>
+
+<pre>
+
+</pre>
+<center>
+<table class="table" style="width:400px">
+<tr>
+<th class="name">Username</th>
+<td><input class="form-control" type="email" name="uname"  required=""></td>
+</tr>
+<tr>
+<th class="name">First Name</th>
+<td><input class="form-control" type="text" name="fname"  required=""></td>
+</tr>
+<tr>
+<th class="name">Last Name</th>
+<td><input class="form-control" type="text" name="lname"  required=""></td>
+</tr>
+<tr>
+<th class="name">Phone no</th>
+<td><input class="form-control" type="text" name="phno"  maxlength="10" title="enter 10 digits" pattern="[0-9]{10}" required=""></td>
+</tr>
+
+<tr>
+<th class="name">City</th>
+<td><input class="form-control" type="text" name="city"  required=""></td>
+</tr>
+
+
+
+<tr>
+<th class="name">Password</th>
+<td><input class="form-control" type="password" name="password"  required=""></td>
+</tr>
+<tr>
+<td align="center" colspan="2"><input class="btn btn-success" type="submit" value="Submit" name="submit"></td>
+</tr>
+</table>
+</center>
+    </form>
+
+</div>
+</div>
+</form</div>
+{%endif%}
+<div class="lg-main">
+    <div class="bxx">
+<br>
+<a href="staffreport" class="btn btn-success">Print</a>
+<center><h1 class="name">View Staff</h1></center>
+<table class="table table-striped" style="width:800px" border=6>
+    <tr>
+        <th class="name">Username</th>
+        <th class="name">Name</th>
+        <th class="name">Phone</th>
+        <th class="name">City</th>
+        
+    </tr>
+    {% for i in data['res'] %}
+    <tr>
+        <td class="name">{{ i['username'] }}</td>
+        <td class="name">{{ i['s_fname'] }} {{ i['s_lname'] }}</td>
+        <td class="name">{{ i['s_phno'] }}</td>
+        <td class="name">{{ i['s_city'] }}</td>
+        
+        
+        <td><a href="?action=update&cid={{i['s_id']}}"  class="btn btn-primary">Update</a></td>
+        {% if i['s_status'] == 1 %}
+        <td><a href="?action=inactive&cid={{i['s_id']}}"  class="btn btn-danger">inactive</a></td>
+        {% else %}
+        <td><a href="?action=active&cid={{i['s_id']}}"  class="btn btn-success">active</a></td>
+
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+</div></div>       </div></div>         
+    </section>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        $("input[name='fname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+        });
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+		// $("input[name='pgender']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+        // });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+        
+        $("input[name='phno']").on('input', function(e) {
+          $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='pin']").on('input', function(e) {
+          $(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+		
+        $("input[name='uname']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror1').show();
+                    $('#btn').prop('disabled', true);
+                    console.log("err");
+                } else {
+                    $('#btn').prop('disabled', false);
+                    $('#eerror1').hide();
+                    console.log("err");
+                }
+
+        });
+        
+        $("input[name='housename']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        
+          
+        // $("input[name='password']").on('input', function(e) {
+        //   $(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+            
+        // });
+    });
+
+
+</script>
+</html>
+

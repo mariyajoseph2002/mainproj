@@ -1,0 +1,47 @@
+<html>
+    <head>
+       
+
+
+    <link rel="stylesheet" href="../static/css/notificationcss.css">
+       
+    <!-- <link rel="stylesheet" href="../static/css/bootstrap2.css"> -->
+
+    </head>
+    <body>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form"> See Modal with Form </button>
+    <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content py-md-5 px-md-4 p-sm-3 p-4">
+            
+            <h3>Push notifications</h3>
+                <i class="fa fa-bell"></i>
+                <p class="r3 px-md-5 px-sm-1">A customer wishes to buy your property <br>Customer details: </p>
+                {% for i in data['spro'] %}
+                <p>{{ i['c_fname'] }} ,{{ i['c_phno'] }} </p>
+                
+        
+                <div class="text-center mb-3">
+                    
+                    <a href="?action=inactive&cid={{i['b_id']}}"  class="btn btn-danger">Deny</a>
+                   
+                    <a href="?action=active&cid={{i['b_id']}}"  class="btn btn-primary">Accept</a>
+            
+                   
+                    {% endfor %}
+                    <button class="btn btn-primary w-50 rounded-pill b1">Subscribe</button> </div>
+                
+                <a href="#">Not now</a>
+            </div>
+        </div>
+    </div> -->
+
+</body>
+</html>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>alert("{{ message }}")</script>
+		{% endfor %}
+	{% endif %}
+{% endwith %}

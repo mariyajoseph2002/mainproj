@@ -1,0 +1,200 @@
+
+    <!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!--<title> Responsiive Admin Dashboard | CodingLab </title>-->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-g8fTlB7jGtCvxz7cSg+9Z/N9/F0o0P/OEj8C/yUJEY0NcN/U0LrjgYX5I5mOcO3Kj5W8QI0P+OJwfvCGkf39W8A==" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../static/css/style2.css">
+    <link rel="stylesheet" href="../static/css/bootstrap2.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <style>
+      /* Add some styling for the dashboard boxes */
+      .dashboard-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 3px solid #ccc;
+        border-radius: 5px;
+        width: 250px;
+        height: 200px;
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+      }
+  
+      /* Add some hover effects for the dashboard boxes */
+      .dashboard-box:hover {
+        cursor: pointer;
+        box-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+        transform: translateY(-2px);
+      }
+  
+      /* Add some styling for the dashboard box icons */
+      .dashboard-box i {
+        font-size: 36px;
+        color: #555;
+      }
+  
+      /* Add some styling for the dashboard box texts */
+      .dashboard-box h3 {
+        font-size: 18px;
+        margin: 10px 0;
+        color: #333;
+      }
+      .dashboard-box p {
+        font-size: 14px;
+        color: #999;
+      }
+    </style>
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details"> <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">DDAENG
+            <span>Real Property</span>
+        </a>
+   <!--  <a href="homepage.php" ><i><span class="logo_name">  K&M</span></pre></i></a> -->
+    </div>
+      <ul class="nav-links">
+        <li>
+          <a href="#" class="active">
+            <i class='bx bx-grid-alt' ></i>
+            <span class="links_name">Home</span>
+          </a>
+        </li>
+        <li>
+          <a href="customerdisp">
+            <i class='bx bx-user-pin' ></i>
+            <span class="links_name">Customer</span>
+          </a>
+        </li>
+        <li>
+            <a href="staffadd">
+              <i class='bx bx-user' ></i>
+              <span class="links_name">Staff</span>
+            </a>
+          </li>
+        <li>
+          <a href="propertyadd">
+            <i class='bx bx-building-house' ></i>
+            <span class="links_name">Property Type</span>
+          </a>
+        </li>
+        
+
+        <li>
+        <a href="categoryadd">
+            <i class='bx bx-home-circle' ></i>
+            <span class="links_name">Category</span>
+          </a>
+        </li>
+        <li>
+            <a href="subcategoryadd">
+                <i class='bx bx-book-alt' ></i>
+                <span class="links_name">Subcategory</span>
+            </a>
+        </li>
+        <li>
+          <a href="buildingadd">
+            <i class='bx bx-home' ></i>
+            <span class="links_name">Building</span>
+          </a>
+        </li>
+    <!--     <li>
+          <a href="service.php">
+            <i class='bx bx-list-ul' ></i>
+            <span class="links_name">Service</span>
+          </a>
+        </li> -->
+        
+        <li>
+          <a href="salesdisp">
+            <i class='bx bx-cart' ></i>
+            <span class="links_name">Sales</span>
+          </a>
+        </li>
+        <li>
+          <a href="proposalreport">
+            <i class='bx bxs-report'></i>
+            <span class="links_name">Proposal report</span>
+          </a>
+        </li>
+        <li>
+          <a href="login">
+            <i class='bx bx-log-out'></i>
+            <span class="links_name">Log out</span>
+          </a>
+        </li>
+      </ul>
+  </div>
+  <section class="home-section">
+    <nav>
+      <div class="sidebar-button">
+        <i class='bx bx-menu sidebarBtn'></i>
+        <span class="dashboard">Dashboard</span>
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Search...">
+        <i class='bx bx-search' ></i>
+      </div>
+      </nav>
+  <!--   </section>
+    <div class="dashboard-box">
+      <div class="box-header">
+        <h3 class="box-title">Box Title</h3>
+      </div>
+      <div class="box-body">-->
+     <!-- Content goes here -->
+      <!-- </div>
+    </div>  -->
+    <br><br>
+   
+   <div class="container">
+    <br>
+    <h4>Welcome back Admin!</h4>
+        <div class="dashboard">
+          <div class="item ">
+          <!-- Create some dashboard boxes -->
+          <div class="dashboard-box green">
+            <i class="bx bx-user"></i>
+            <h3>Total Customers</h3>
+            <h4>{{ data['c']}}</h4>
+           
+          </div>
+        </div>
+          <div class="item ">
+          <div class="dashboard-box purple">
+            <i class="bx bx-buildings"></i>
+            <h3 text-align="center">Total Properties available</h3>
+            <h4>{{data['b']}}</h4>
+          </div>
+        </div>
+          <div class="item ">
+          <div class="dashboard-box wine">
+            <i class="bx bx-cart"></i>
+            <h3>Total properties sold</h3>
+            <h4>2</h4>
+          </div>
+        </div>
+       <!--  <div class="item ">
+          <div class="dashboard-box blue">
+            <i class="bx bx-list-ul"></i>
+            <h3>Total sellers</h3>
+            <h4>1</h4>
+          </div>
+        </div> -->
+        </div>
+        
+      </div>
+     
+       
+</body>
+</html>
+

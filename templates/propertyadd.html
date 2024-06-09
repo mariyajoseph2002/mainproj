@@ -1,0 +1,110 @@
+{% include 'adminnavbar.html' %}
+<html>
+    <head>
+        <style>
+          
+           
+            .lg-main{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100% !important;
+        
+            }
+            .bxx{
+                box-shadow: 2px 4px 6px lightgray,-2px -1px 6px lightgray;
+
+                margin-top: 100px;
+                border-radius: 20px;
+                margin-bottom: 50px;
+                background-color: rgba(70, 8, 106, 0.3);
+            }
+            
+           
+            .name{
+                color: rgb(239, 247, 254);
+            }
+            </style>  
+
+    </head>
+<body>
+    <div class="lg-main">
+        <div class="bxx">
+    <form action="#" method="POST" style="width: 450px;">
+        {%if data['up']%}
+        <center>
+            <pre>
+
+            </pre><div class="card-header"></div>
+            <div class="lg-main">
+                <div class="bxx">
+        <h1 class="text-white">Property type details
+
+      </h1>
+      <pre>
+
+      </pre>
+
+    <table class="table" style="width:500px">
+        <tr>
+            <th class="name">Property name</th>
+            <td><input class="form-control" type="text" name="name" value="{{data['up'][0]['ptype_name']}}" required=""></td>
+        </tr>
+      
+        <tr>
+            <td align="center" colspan="2"><input class="btn btn-danger" type="submit" value="Submit" name="update"></td>
+        </tr>
+    </table>
+</center>
+{%else%}
+    </form>
+
+
+<div class="lg-main">
+    <div class="bxx">
+<form  action="#" method="POST" style="width: 450px;">
+    <div class="card-header">
+        <h1 class="text-white">Property Type details
+        
+        </h1> 
+        
+        
+     <br>
+            <tr>
+                <th class="name">Property name</th>
+                <td><input class="form-control" type="text" name="name"  required=""></td>
+            </tr>
+          <br>
+         
+
+            <tr>
+                <td align="center" colspan="2"><input class="btn btn-danger" type="submit" value="Submit" name="submit"></td>
+            </tr>
+        </table>
+</form>
+{%endif%}
+</div>
+</div>
+</div>
+   
+    <br>
+    <div class="lg-main">
+        <div class="bxx">
+<center><h1 class="name">View Property type</h1></center>
+<table class="table table-striped" style="width:800px" border=6>
+    <tr>
+        <th class="name">Name</th>
+    </tr>
+    {% for i in data['res'] %}
+    <tr>
+        <td class="name">{{ i['ptype_name'] }} </td>
+        <td><a href="?action=update&cid={{i['ptype_id']}}"  class="btn btn-primary">Update</a></td>
+    </tr>
+    {% endfor %}
+</table>
+    <center>
+    </section>
+</body>
+
+</html>
+

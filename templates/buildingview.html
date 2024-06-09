@@ -1,0 +1,49 @@
+<html>
+    <head>
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <style>
+            .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
+
+.price {
+  color: grey;
+  font-size: 22px;
+}
+
+.card button {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: rgb(255, 255, 255);
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+        </style>
+    </head>
+    <body>
+
+        <div class="card">
+  <img src="/{{data['spro'][0]['image']}}" alt="img-fluid" style="width:100%">
+  <h1>{{data['spro'][0]['ptype_name']}},{{data['spro'][0]['cat_name']}},{{data['spro'][0]['subcat_name']}}</h1>
+  <p class="price">Rs.{{data['spro'][0]['price']}}</p>
+  <p>Address:{{data['spro'][0]['houseno']}},{{data['spro'][0]['place']}},{{data['spro'][0]['district']}}</p>
+  
+  <p><button>{% for row in data['spro']%}
+    <a class="item_add" href="cart?id={{row['buil_id']}}&price={{row['price']}}"><i class="bx bxs-cart-add"></i>Add to Cart</a>
+    {% endfor %}</button></p>
+</div>
+
+    </body>
+</html>

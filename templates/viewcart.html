@@ -1,0 +1,76 @@
+<head>
+    <!-- <link rel='stylesheet' href='https://sachinchoolur.github.io/lightslider/dist/css/lightslider.css'> -->
+    <link rel="stylesheet" href="static/css/light.css">
+    <link rel="stylesheet" href="static/css/gg.css">
+    <link rel="stylesheet" href="static/css/bootstrap2.css">
+</head>
+<pre>
+
+
+
+
+
+</pre>
+
+<div class="container-fluid mt-2 mb-3"> 
+    <div class="row no-gutters"> 
+        <div class="col-md-5 pr-2"> 
+            <div class="card"> 
+                <div class="demo">
+                     <ul id="lightSlider">
+                         <li data-thumb=""> 
+                            <img src="/{{data['spro'][0]['image']}}" /> 
+                        </li> 
+                        <!--  <li data-thumb="https://i.imgur.com/GwiUmQA.jpg"> 
+                            <img src="/{{data['spro'][0]['img1']}}" /> 
+                        </li> 
+                        <li data-thumb="https://i.imgur.com/DhKkTrG.jpg"> 
+                            <img src="/{{data['spro'][0]['img2']}}" /> 
+                        </li>   -->
+                        
+                        </ul>
+</div> </div> 
+<div class="card mt-2"> <h6>Owner details</h6> 
+    <div class="d-flex flex-row"> 
+        <div class="stars"> 
+            <i class="fa fa-star"></i> 
+            <i class="fa fa-star"></i> 
+            <i class="fa fa-star"></i> 
+            <i class="fa fa-star"></i> 
+        </div> <span class="ml-1 font-weight-bold">{{data['s'][0]['c_phno']}}</span> 
+    </div> <hr> 
+    
+    
+</div> 
+</div> 
+<div class="col-md-7"> 
+    
+        <div class="about"> <span class="font-weight-bold">{{data['spro'][0]['ptype_name']}} {{data['spro'][0]['cat_name']}} {{data['spro'][0]['subcat_name']}}</span> 
+            <h4 class="font-weight-bold">{{data['spro'][0]['price']}}</h4> </div> <div class="buttons"> 
+                <a href="addcard"> <button class="btn btn-outline-warning btn-long cart" id="new"  name="new" type="submit" value="Proceed to checkout"></button> 
+                <button class="btn btn-warning btn-long buy"> Proceed to checkout</button> </a>
+               
+            </div> <hr> 
+           
+               
+                <div class="mt-2"> <span class="font-weight-bold">Description</span> 
+                    <p>{{data['spro'][0]['square_feet']}}sq <br>
+                        Address:{{data['spro'][0]['place']}} {{data['spro'][0]['district']}}</p> 
+                        
+                    </div> 
+                </div> 
+                
+            </div> 
+        </div> 
+    </div> 
+
+</div> 
+</div>
+
+</div> 
+</div> 
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+<script src='https://sachinchoolur.github.io/lightslider/dist/js/lightslider.js'></script>
+<script> $('#lightSlider').lightSlider({ gallery: true, item: 1, loop: true, slideMargin: 0, thumbItem: 9 });
+</script>

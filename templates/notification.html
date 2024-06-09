@@ -1,0 +1,50 @@
+<html>
+    <head>
+       
+
+
+    <link rel="stylesheet" href="../static/css/notificationcss.css">
+       
+    <link rel="stylesheet" href="../static/css/bootstrap2.css">
+<style>
+    .notification-box {
+  background-color: #e6e6e6;
+  border: 1px solid #b3b3b3;
+  color: #333;
+  padding: 25px;
+  border-radius: 5px;
+}
+
+</style>
+    </head>
+    <body>
+       
+            {% for i in data['spro'] %}
+            <div class="notification-box">
+                <p>A customer wishes to buy your property <br>Customer details: </p>
+            <p>{{ i['c_fname'] }} ,{{ i['c_phno'] }} </p>
+            <p>Property details:{{ i['buil_id'] }} ,Rs.{{ i['price'] }}</p>
+            
+            {{ i['ptype_name'] }} {{ i['cat_name'] }} {{ i['subcat_name'] }}
+            <a href="/{{ i['image'] }}"><img src="/{{ i['image'] }}" height="100" width="100"></a>
+            
+            <div class="text-center mb-3">
+                    
+                <a href="?action=inactive&cid={{i['b_id']}}"  class="btn btn-danger">Deny</a>
+               
+                <a href="?action=active&cid={{i['b_id']}}"  class="btn btn-primary">Accept</a>
+        
+            </div>
+        </div>
+                {% endfor %}
+          
+          </body>
+          </html>
+{% with messages = get_flashed_messages() %}
+	{% if messages %}
+		{% for message in messages %}
+			<script>alert("{{ message }}")</script>
+		{% endfor %}
+	{% endif %}
+{% endwith %}
+          
